@@ -1,7 +1,63 @@
 ember-timerz
 ==============================================================================
 
-[Short description of the addon.]
+Trees of timers. Timer trees. A timer forest?
+
+Create timers in your code:
+
+```js
+load: task(function*() {
+  let timer = new Timer('service:state:load');
+  timer.start();
+  yield timeout(75);
+
+  let foo = timer.addChild('foo');
+  yield timeout(100);
+
+  let bar = foo.addChild('bar');
+
+  let baz = bar.addChild('baz');
+  yield timeout(50);
+  baz.stop();
+
+  bar.addChild('baq')
+  yield timeout(150);
+
+  timer.stop();
+
+  console.log(JSON.stringify(timer.toJSON()));
+})
+```
+
+Get JSON output:
+```JSON
+{
+  "name": "service:state:load",
+  "duration": 386.89999999769,
+  "children": [
+    {
+      "name": "service:state:load:foo",
+      "duration": 308.49999999919,
+      "children": [
+        {
+          "name": "service:state:load:foo:bar",
+          "duration": 207.80000000013,
+          "children": [
+            {
+              "name": "service:state:load:foo:bar:baz",
+              "duration": 53.800000001502
+            },
+            {
+              "name": "service:state:load:foo:bar:baq",
+              "duration": 153.90000000116
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 Installation
 ------------------------------------------------------------------------------
