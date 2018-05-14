@@ -18,6 +18,6 @@ module('Unit | Utility | timer', function(hooks) {
 
     timer.stop();
 
-    assert.ok(nearlyEqual(timer.time.duration, 1000));
+    assert.ok(nearlyEqual(timer.data.duration, 1000));
   });
 });

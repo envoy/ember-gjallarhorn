@@ -4,14 +4,10 @@ export class Timer {
 
   constructor(public label: string) {}
 
-  get time() {
+  get data() {
     window.performance.measure(this.label, this.startLabel, this.stopLabel);
     let measures: Array<PerformanceMeasure> = window.performance.getEntriesByName(this.label);
     return measures[0];
-  }
-
-  get status() {
-    return `${this.label} - ${Math.floor(this.time.duration)} ms`;
   }
 
   start() {
