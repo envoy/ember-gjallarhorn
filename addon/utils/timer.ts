@@ -53,7 +53,7 @@ export class Timer implements Node {
     }
   }
 
-  appendAndStart(label: string): Timer {
+  addChild(label: string): Timer {
     let child = new Timer(`${this.label}:${label}`);
     child._parent = this;
     this._children.push(child);

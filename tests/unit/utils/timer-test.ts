@@ -54,12 +54,12 @@ module('Unit | Utility | timer', function(hooks) {
     assert.ok(nearlyEqual(baz.value.duration, 100), "baz's duration should be 100ms");
   });
 
-  test('Timer#appendAndStart works', async function(assert) {
+  test('Timer#addChild works', async function(assert) {
     let foo = new Timer('foo');
 
     foo.start();
 
-    let bar = foo.appendAndStart('bar');
+    let bar = foo.addChild('bar');
 
     assert.ok(foo.hasChildren, 'foo should have children after append');
     assert.equal(foo.children.length, 1, 'foo should have 1 child');
@@ -69,7 +69,7 @@ module('Unit | Utility | timer', function(hooks) {
     bar.stop();
 
 
-    let baz = bar.appendAndStart('baz');
+    let baz = bar.addChild('baz');
     assert.ok(foo.children[0].hasChildren, "appending to a child should register on the parent");
     assert.equal(foo.children.length, 1, "appending to a child shouldn't affect the parent's child count");
 
