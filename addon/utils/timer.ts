@@ -19,6 +19,12 @@ export class Timer {
     this.stopLabel = `${this.label}-stop`;
     window.performance.mark(this.stopLabel);
   }
+
+  clear() {
+    window.performance.clearMarks(this.startLabel);
+    window.performance.clearMarks(this.stopLabel);
+    window.performance.clearMeasures(this.label);
+  }
 }
 
 export default Timer;
