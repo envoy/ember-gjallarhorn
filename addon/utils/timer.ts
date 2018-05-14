@@ -41,8 +41,16 @@ export class Timer implements Node {
   }
 
   stop() {
-    this.stopLabel = `${this.label}-stop`;
-    window.performance.mark(this.stopLabel);
+    if (!this.stopLabel) {
+      this.stopLabel = `${this.label}-stop`;
+      window.performance.mark(this.stopLabel);
+    }
+
+    if (this.hasChildren) {
+      this.children.forEach(child => {
+        child.stop();
+      });
+    }
   }
 
   appendAndStart(label: string): Timer {
