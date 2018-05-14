@@ -78,6 +78,19 @@ export class Timer implements Node {
       })
     }
   }
+
+  toJSON() {
+    let json = Object.assign({}, {
+      name: this.label,
+      duration: this.value.duration
+    });
+
+    if (this.hasChildren) {
+      json.children = this.children.map(child => child.toJSON());
+    }
+
+    return json;
+  }
 }
 
 export default Timer;
