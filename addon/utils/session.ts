@@ -1,6 +1,6 @@
 import Timer from './timer';
 
-export class TimerSession {
+export class Session {
   sessionLabel: string;
   timers: Map<string, Timer>;
 
@@ -35,7 +35,9 @@ export class TimerSession {
     let timerList = Array.from(this.timers);
 
     return timerList.map(timer => {
-      return timer[1].status;
+      return timer[1].data;
     });
   }
 }
+
+export default Session;
