@@ -13,19 +13,19 @@ load: task(function*() {
   timer.start();
   yield timeout(75);
 
-  let foo = timer.addChild('foo');
+  let foo = timer.startChild('foo');
   yield timeout(100);
 
-  let bar = foo.addChild('bar');
+  let bar = foo.startChild('bar');
 
-  let baz = bar.addChild('baz');
+  bar.startChild('baz');
   yield timeout(50);
-  baz.stop();
+  bar.stopChild('baz');
 
-  bar.addChild('baq')
+  bar.startChild('baq')
   yield timeout(150);
 
-  timer.stop();
+  timer.stop(); // Stop this timer and all children
 
   console.log(JSON.stringify(timer.toJSON()));
 })
@@ -35,23 +35,23 @@ Get JSON output:
 ```JSON
 {
   "name": "service:state:load",
-  "duration": 386.89999999769,
+  "duration": 384.50000000012,
   "children": [
     {
       "name": "service:state:load:foo",
-      "duration": 308.49999999919,
+      "duration": 305.39999999746,
       "children": [
         {
           "name": "service:state:load:foo:bar",
-          "duration": 207.80000000013,
+          "duration": 204.79999999952,
           "children": [
             {
               "name": "service:state:load:foo:bar:baz",
-              "duration": 53.800000001502
+              "duration": 54.000000003725
             },
             {
               "name": "service:state:load:foo:bar:baq",
-              "duration": 153.90000000116
+              "duration": 150.69999999832
             }
           ]
         }
