@@ -1,5 +1,7 @@
-ember-timerz
+ember-gjallarhorn
 ==============================================================================
+
+Inspired by [heimdalljs](https://github.com/heimdalljs/heimdalljs-lib), which is a very interesting approach to performance measurement that unfortunately appears to be blocked at the moment.
 
 Trees of timers. Timer trees. A timer forest?
 
@@ -63,7 +65,7 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install ember-timerz
+ember install ember-gjallarhorn
 ```
 
 
@@ -79,7 +81,7 @@ Contributing
 ### Installation
 
 * `git clone <repository-url>`
-* `cd ember-timerz`
+* `cd ember-gjallarhorn`
 * `yarn install`
 
 ### Linting

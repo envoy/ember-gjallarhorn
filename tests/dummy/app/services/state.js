@@ -1,6 +1,6 @@
 import Service from '@ember/service';
 import { task, timeout } from 'ember-concurrency';
-import { Timer } from 'ember-timerz';
+import { Timer } from 'ember-gjallarhorn';
 
 export default Service.extend({
   load: task(function*() {

@@ -1,4 +1,4 @@
-import Timer from 'ember-timerz';
+import Timer from 'ember-gjallarhorn';
 import { module, test } from 'qunit';
 import sleep from '../../helpers/sleep';
 import nearlyEqual from '../../helpers/nearly-equal';
