@@ -1,1 +1,1 @@
-export { Timer } from 'ember-timerz/utils/timer';
+export { default } from 'ember-timerz/utils/timer';

@@ -22,6 +22,6 @@ export default Service.extend({
 
     timer.stop();
 
-    console.log(JSON.stringify(timer.toJSON()));
+    JSON.stringify(timer.toJSON());
   })
 });

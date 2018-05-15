@@ -1,4 +1,4 @@
-interface Node {
+export interface Node {
   value: any;
   children: Array<Node>;
 
@@ -6,6 +6,12 @@ interface Node {
   hasChildren: boolean;
 
   append(child: Node): Node;
+}
+
+export interface TimerJSON {
+  name: string;
+  duration: number;
+  children?: Array<TimerJSON>
 }
 
 export class Timer implements Node {
@@ -80,7 +86,7 @@ export class Timer implements Node {
   }
 
   toJSON() {
-    let json = Object.assign({}, {
+    let json: TimerJSON = Object.assign({}, {
       name: this.label,
       duration: this.value.duration
     });
