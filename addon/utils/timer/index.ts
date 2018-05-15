@@ -1,31 +1,21 @@
-export interface Node {
-  value: any;
-  children: Array<Node>;
+import { TimerJSON, PerformanceSubset } from './types';
+import { performance } from './performance';
 
-  isRoot: boolean;
-  hasChildren: boolean;
-
-  append(child: Node): Node;
-}
-
-export interface TimerJSON {
-  name: string;
-  duration: number;
-  children?: Array<TimerJSON>
-}
-
-export class Timer implements Node {
+export class Timer {
   private _children: Array<Timer> = [];
   private _parent: Timer | null = null;
+  private performance: PerformanceSubset;
 
   startLabel = '';
   stopLabel = '';
 
-  constructor(public label: string) {}
+  constructor(public label: string) {
+    this.performance = performance();
+  }
 
   get value() {
-    window.performance.measure(this.label, this.startLabel, this.stopLabel);
-    let measures: Array<PerformanceMeasure> = window.performance.getEntriesByName(this.label);
+    this.performance.measure(this.label, this.startLabel, this.stopLabel);
+    let measures: Array<PerformanceMeasure> = this.performance.getEntriesByName(this.label);
     return measures[0];
   }
 
@@ -43,13 +33,13 @@ export class Timer implements Node {
 
   start() {
     this.startLabel = `${this.label}-start`;
-    window.performance.mark(this.startLabel);
+    this.performance.mark(this.startLabel);
   }
 
   stop() {
     if (!this.stopLabel) {
       this.stopLabel = `${this.label}-stop`;
-      window.performance.mark(this.stopLabel);
+      this.performance.mark(this.stopLabel);
     }
 
     if (this.hasChildren) {
@@ -83,9 +73,9 @@ export class Timer implements Node {
   }
 
   clear() {
-    window.performance.clearMarks(this.startLabel);
-    window.performance.clearMarks(this.stopLabel);
-    window.performance.clearMeasures(this.label);
+    this.performance.clearMarks(this.startLabel);
+    this.performance.clearMarks(this.stopLabel);
+    this.performance.clearMeasures(this.label);
 
     if (this.hasChildren) {
       this.children.forEach(child => {
