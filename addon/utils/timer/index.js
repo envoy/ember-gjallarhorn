@@ -1,3 +1,4 @@
+import { performance } from './performance';
 export class Timer {
     constructor(label) {
         this.label = label;
@@ -5,10 +6,11 @@ export class Timer {
         this._parent = null;
         this.startLabel = '';
         this.stopLabel = '';
+        this.performance = performance();
     }
     get value() {
-        window.performance.measure(this.label, this.startLabel, this.stopLabel);
-        let measures = window.performance.getEntriesByName(this.label);
+        this.performance.measure(this.label, this.startLabel, this.stopLabel);
+        let measures = this.performance.getEntriesByName(this.label);
         return measures[0];
     }
     get isRoot() {
@@ -22,12 +24,12 @@ export class Timer {
     }
     start() {
         this.startLabel = `${this.label}-start`;
-        window.performance.mark(this.startLabel);
+        this.performance.mark(this.startLabel);
     }
     stop() {
         if (!this.stopLabel) {
             this.stopLabel = `${this.label}-stop`;
-            window.performance.mark(this.stopLabel);
+            this.performance.mark(this.stopLabel);
         }
         if (this.hasChildren) {
             this.children.forEach(child => {
@@ -55,9 +57,9 @@ export class Timer {
         return this;
     }
     clear() {
-        window.performance.clearMarks(this.startLabel);
-        window.performance.clearMarks(this.stopLabel);
-        window.performance.clearMeasures(this.label);
+        this.performance.clearMarks(this.startLabel);
+        this.performance.clearMarks(this.stopLabel);
+        this.performance.clearMeasures(this.label);
         if (this.hasChildren) {
             this.children.forEach(child => {
                 child.clear();

@@ -1,19 +1,9 @@
-export interface Node {
-    value: any;
-    children: Array<Node>;
-    isRoot: boolean;
-    hasChildren: boolean;
-    append(child: Node): Node;
-}
-export interface TimerJSON {
-    name: string;
-    duration: number;
-    children?: Array<TimerJSON>;
-}
-export declare class Timer implements Node {
+import { TimerJSON } from './types';
+export declare class Timer {
     label: string;
     private _children;
     private _parent;
+    private performance;
     startLabel: string;
     stopLabel: string;
     constructor(label: string);
