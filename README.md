@@ -1,6 +1,8 @@
 ember-gjallarhorn
 ==============================================================================
 
+[![Build Status](https://travis-ci.org/envoy/ember-gjallarhorn.svg?branch=master)](https://travis-ci.org/envoy/ember-gjallarhorn)
+
 Inspired by [heimdalljs](https://github.com/heimdalljs/heimdalljs-lib), which is a very interesting approach to performance measurement that unfortunately appears to be blocked at the moment.
 
 Trees of timers. Timer trees. A timer forest?
