@@ -10,15 +10,11 @@ export interface Node {
 
 export interface TimerJSON {
   name: string;
-  duration: number;
-  children?: Array<TimerJSON>
+  duration?: number;
+  children?: Array<TimerJSON>;
 }
 
 export type PerformanceSubset = Pick<
   Performance,
-  'mark' |
-  'measure' |
-  'getEntriesByName' |
-  'clearMarks' |
-  'clearMeasures'
+  'mark' | 'measure' | 'getEntriesByName' | 'clearMarks' | 'clearMeasures'
 >;
