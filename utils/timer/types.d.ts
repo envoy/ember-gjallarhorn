@@ -7,7 +7,7 @@ export interface Node {
 }
 export interface TimerJSON {
     name: string;
-    duration: number;
+    duration?: number;
     children?: Array<TimerJSON>;
 }
 export declare type PerformanceSubset = Pick<Performance, 'mark' | 'measure' | 'getEntriesByName' | 'clearMarks' | 'clearMeasures'>;

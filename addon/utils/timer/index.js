@@ -69,7 +69,7 @@ export class Timer {
     toJSON() {
         let json = Object.assign({}, {
             name: this.label,
-            duration: this.value.duration
+            duration: (this.value && this.value.duration) || undefined
         });
         if (this.hasChildren) {
             json.children = this.children.map(child => child.toJSON());
