@@ -675,7 +675,7 @@
     "@types/jquery" "*"
     "@types/rsvp" "*"
 
-"@types/ember@*", "@types/ember@^2.8.22":
+"@types/ember@*":
   version "2.8.22"
   resolved "https://registry.yarnpkg.com/@types/ember/-/ember-2.8.22.tgz#544751b5cf5e87b16ab1565823f3a8c9f00210cc"
   dependencies:
@@ -683,7 +683,7 @@
     "@types/jquery" "*"
     "@types/rsvp" "*"
 
-"@types/ember@^2":
+"@types/ember@^2", "@types/ember@^2.8.37":
   version "2.8.37"
   resolved "https://registry.yarnpkg.com/@types/ember/-/ember-2.8.37.tgz#0f7d6b78c5c8e0756642d1624235d0510f872700"
   dependencies:
