@@ -30,7 +30,7 @@
     "@types/ember-test-helpers": "^0.7.2",
     "@types/ember-testing-helpers": "^0.0.3",
     "@types/lolex": "^2.1.2",
-    "@types/qunit": "^2.5.0",
+    "@types/qunit": "^2.9.0",
     "@types/rsvp": "^4.0.1",
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^3.0.0",
