@@ -667,11 +667,11 @@
     "@types/jquery" "*"
     "@types/rsvp" "*"
 
-"@types/ember-test-helpers@^0.7.2":
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/@types/ember-test-helpers/-/ember-test-helpers-0.7.2.tgz#e6bd2f5cc3936677e1ee81b70be85ed2b53558bf"
+"@types/ember-test-helpers@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@types/ember-test-helpers/-/ember-test-helpers-1.0.5.tgz#b0a8a3b9386ddf372eef11ba95487be806674ca2"
   dependencies:
-    "@types/ember" "^2"
+    "@types/ember" "*"
     "@types/htmlbars-inline-precompile" "*"
     "@types/jquery" "*"
     "@types/rsvp" "*"
@@ -691,7 +691,7 @@
     "@types/jquery" "*"
     "@types/rsvp" "*"
 
-"@types/ember@^2", "@types/ember@^2.8.37":
+"@types/ember@^2.8.37":
   version "2.8.37"
   resolved "https://registry.yarnpkg.com/@types/ember/-/ember-2.8.37.tgz#0f7d6b78c5c8e0756642d1624235d0510f872700"
   dependencies:

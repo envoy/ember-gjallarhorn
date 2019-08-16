@@ -27,7 +27,7 @@
   "devDependencies": {
     "@types/ember": "^2.8.37",
     "@types/ember-qunit": "^3.4.6",
-    "@types/ember-test-helpers": "^0.7.2",
+    "@types/ember-test-helpers": "^1.0.5",
     "@types/ember-testing-helpers": "^0.0.3",
     "@types/lolex": "^2.1.2",
     "@types/qunit": "^2.9.0",
